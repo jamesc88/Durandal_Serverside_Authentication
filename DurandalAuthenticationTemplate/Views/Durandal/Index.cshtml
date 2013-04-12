@@ -1,0 +1,15 @@
+﻿@Html.AntiForgeryToken()
+
+<div id="applicationHost">
+    @Html.Partial("_splash")
+</div>
+ 
+@if (HttpContext.Current.IsDebuggingEnabled) {
+    @section Scripts {
+        <script type="text/javascript" src="~/App/durandal/amd/require.js" data-main="@Url.Content("~/App/main")"></script>
+    }
+} else {
+    @section Scripts {
+        <script type="text/javascript" src="~/App/main-built.js"></script>
+    }
+}
